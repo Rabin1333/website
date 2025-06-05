@@ -1,0 +1,218 @@
+/* Reset and base styles */
+:root {
+    --primary-color: #e50914;
+    --secondary-color: #221f1f;
+    --text-color: #ffffff;
+    --background-color: #141414;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: block;
+}
+
+/* Navigation styles */
+header {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+}
+
+/* Common sections */
+main {
+    padding-top: 60px;
+}
+
+section {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+}
+
+/* Hero Banner */
+.hero-banner {
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+/* Button Styles */
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color var(--transition-speed);
+}
+
+.btn-primary:hover {
+    background: #f40612;
+}
+
+/* Seat Selection Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+}
+
+.modal-content {
+    background: var(--secondary-color);
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.seat-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.5rem;
+    margin: 2rem 0;
+}
+
+.seat {
+    padding: 0.5rem;
+    background: #444;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.seat.selected {
+    background: var(--primary-color);
+}
+
+.seat.occupied {
+    background: #666;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #main-nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+
+    .hero-banner {
+        height: 40vh;
+    }
+
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+}
